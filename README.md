@@ -10,10 +10,12 @@ note if you use apache make sure you can write on this folder otherwise you will
 
 test instructions:
 1)open an web browser
-2)browse to 127.0.0.1
-3)browse until you find load.php then open it.
 
-know issues:
+2)browse to 127.0.0.1
+
+3)browse to the folder you created
+
+Know issues:
 
 1)by default elias94xx/Online-Tile-Map-Editor write 0 on an position that you didn't specify which tile should be there.
 this is not an big issue if the tile is transparent, but since in this example it's not, this reader 

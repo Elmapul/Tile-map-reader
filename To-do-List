@@ -1,0 +1,18 @@
+1-Fix Know issues
+2-add map scroller (for your game)
+3-add colision map (configure solid tiles on another editor)
+4-add parent map function (map to load when reach: north, south, lest, east maybe even diagonal eg northwest)
+5-parent map general and per layer
+6-parent map offset
+7-paralax
+8-3D unity/blender converter
+
+notes:  4 cool feature: add itselft for an infinite looping map. add one map at south other on north for lost wood-ish map
+add itself on (5.6) other layer for ladder/elavator, layer oclusion
+
+For this or for elias repo:
+diagonal tile suport (perspective)
+hexagonal tile suport
+touch suport / improvments in usability
+joystick suport
+remote control/t9 suport

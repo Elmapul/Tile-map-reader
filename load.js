@@ -11,12 +11,19 @@ else
  
  //maps
 var teste = new Array();
- teste[0]="mapa-corrigido.xml";
-xmlhttp.open("GET",teste[0],false);
-xmlhttp.send();
-
 var xmlDoc= new Array();
-xmlDoc[0]=xmlhttp.responseXML;
+
+
+for (coisa=0;coisa<9;coisa++){
+teste[coisa]="mapa-corrigido.xml";
+xmlhttp.open("GET",teste[coisa],false);
+xmlhttp.send();
+xmlDoc[coisa]=xmlhttp.responseXML;
+
+}
+
+
+
 
 var x=xmlDoc[0].getElementsByTagName("layers");
 var i=0;
@@ -61,7 +68,10 @@ errorCount=0;
 var atributo=z[0].getAttribute('tileset');
  
 preloadimages(['mage_city.png']).done(function(images){ 
- alert(images.length)
+alert('carregou');
+})
+function update(){
+// alert(images.length)
 
 var imagens =new Array();
 imagens[0]='mage_city.png';
@@ -71,11 +81,14 @@ imagens[0]='mage_city.png';
 /////////
 imageObj.src = imagens[0];
 
-
+var posX=7;//repetir para Y
+var posY=0;
 //imageObj.onload = function() { //verifica se carregou a imagen
+
+
 for (teste3=0;teste3<layerCount;teste3++){ //seleciona a camada à desenhar
-	for (teste=0; teste<25;teste++){
-		for (teste2=0; teste2<19;teste2++){
+	for (teste=posY; teste<25+posY;teste++){
+		for (teste2=posX; teste2<19+posX;teste2++){
 		var n = layer[teste3].split(","); 
 		try {var auxilar=n[teste2+(teste*25)].split(".");}
 			catch (error){ errorCount ++;}
@@ -87,7 +100,11 @@ for (teste3=0;teste3<layerCount;teste3++){ //seleciona a camada à desenhar
 			n2=12;//posição y do novo transparente, default 12
 			}}
 
-		context.drawImage(imageObj,n1*32,n2*32,32,32,teste2*32,teste*32,32,32); //verificar se esse metodo funciona em todos navegadores
+		context.drawImage(imageObj,n1*32,n2*32,32,32,(teste2*32)-(posX*32),(teste*32)-(posY*32),32,32); //verificar se esse metodo funciona em todos navegadores
+
+
+//void drawImage(  in nsIDOMElement image,  in float sourceX,  in float sourceY,  in float sWidth,  in float sHeigth,  in float destinyX,   in float destinyY,  in float dwidth,  in float dheigth);
+
 
 
 		}
@@ -97,4 +114,6 @@ for (teste3=0;teste3<layerCount;teste3++){ //seleciona a camada à desenhar
 }
 //}
 
-})
+}
+//)
+

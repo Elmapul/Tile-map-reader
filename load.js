@@ -70,6 +70,11 @@ var atributo=z[0].getAttribute('tileset');
 preloadimages(['mage_city.png']).done(function(images){ 
 alert('carregou');
 })
+
+var posX=7;//repetir para Y
+var posY=7;
+
+update();
 function update(){
 // alert(images.length)
 
@@ -81,8 +86,7 @@ imagens[0]='mage_city.png';
 /////////
 imageObj.src = imagens[0];
 
-var posX=7;//repetir para Y
-var posY=0;
+
 //imageObj.onload = function() { //verifica se carregou a imagen
 
 
@@ -90,7 +94,7 @@ for (teste3=0;teste3<layerCount;teste3++){ //seleciona a camada à desenhar
 	for (teste=posY; teste<25+posY;teste++){
 		for (teste2=posX; teste2<19+posX;teste2++){
 		var n = layer[teste3].split(","); 
-		try {var auxilar=n[teste2+(teste*25)].split(".");}
+		try {var auxilar=n[teste2+(teste*25)].split(".");}//25 precisa ser ajustado à valores negativos e de acordo com o tamanho horizontal do mapa
 			catch (error){ errorCount ++;}
 		var n1=auxilar[0];
 		var n2=auxilar[1]; 

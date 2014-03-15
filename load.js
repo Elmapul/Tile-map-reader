@@ -91,18 +91,18 @@ imageObj.src = imagens[0];
 
 
 for (teste3=0;teste3<layerCount;teste3++){ //seleciona a camada à desenhar
-	for (teste=posY; teste<25+posY;teste++){
+	for (teste=posY; teste<25+posY;teste++){ 	
 		for (teste2=posX; teste2<19+posX;teste2++){
 		var n = layer[teste3].split(","); 
 		try {var auxilar=n[teste2+(teste*25)].split(".");}//25 precisa ser ajustado à valores negativos e de acordo com o tamanho horizontal do mapa
 			catch (error){ errorCount ++;}
 		var n1=auxilar[0];
 		var n2=auxilar[1]; 
-		if (n1==0){ //previne que o primeiro pixel seja diferente de transparente
+/*		if (n1==0){ //previne que o primeiro pixel seja diferente de transparente
 			if (n2==0){
 			n1=4; //posição x do novo transparente, default 4
 			n2=12;//posição y do novo transparente, default 12
-			}}
+			}} */
 
 		context.drawImage(imageObj,n1*32,n2*32,32,32,(teste2*32)-(posX*32),(teste*32)-(posY*32),32,32); //verificar se esse metodo funciona em todos navegadores
 
